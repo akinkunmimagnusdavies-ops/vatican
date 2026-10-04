@@ -2,90 +2,173 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: inherit;
-}
-
-:root{
-  --BIG-PAD: 30px 5%;
 }
 body{
-  padding: var(--BIG-PAD)
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f7f8fb;
+  color: #111;
+  line-height: 1.6;
 }
-.head-flex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* HEADER */
+header{
+  background:#fff;
+  box-shadow:0 2px 15px rgba(0,0,0,.06);
+  position:sticky;
+  top:0;
+  z-index:100;
 }
-.logo{
-  max-width: 200px;
-  height: auto;
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:12px 5%;
+}
+.logo img{
+  width:100px;
+  height:100px;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
 }
 .nav-links{
-  display: flex;
+  display:flex;
+  gap:28px; 
+  list-style:none;
+  align-items:center;
 }
 .nav-links a{
-  text-decoration: none;
+  text-decoration:none;
+  font-size:16px;
+  color:#222;
+  font-weight:600;
+  position:relative;
+  padding-bottom:3px;
 }
-.nav-links li{
-  list-style: none;
-  margin: 4px;
-  padding: 3px;
-  font-size: 20px;
-  background: transparent;
-  border-radius: 4px;
-  text-shadow: 1px 0 1px black;
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:#0066ff;
+  transition:0.3s;
 }
-.nav-links li::after{
-  content: '';
-  width: 0%;
-  height: 2px;
-  background: #f44336;
-  display: block;
-  margin: auto;
-  transition: 0.5s;
+.nav-links a:hover::after{
+  width:100%;
 }
-.nav-links li:hover::after{
-  width: 100%;
+.hamburger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+  line-height:1;
+  user-select:none;
 }
-.form-container, h1 p{
-  text-align: center;
+
+/* FORM AREA */
+.form-container{
+  max-width:700px;
+  margin:40px auto;
+  text-align:center;
+  padding:0 5%;
+}
+#book h1{
+  font-size:26px;
+  margin-bottom:8px;
+}
+#book p{
+  color:#666;
+  margin-bottom:20px;
 }
 form{
   display:flex;
   flex-direction:column;
-  gap:12px;
-  max-width:460px;
-  margin:25px auto;
-  background:#1a1a1a;
-  padding:25px;
-  border-radius:15px;
+  gap:14px;
+  /* background:#fff; */
+  background:linear-gradient(135deg, #83976ed8, #3e5bacc0);
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  text-align:left;
 }
 input,select,textarea{
-  padding:12px;
-  border-radius:8px;
-  border:none;
+  padding:14px 16px;
+  border-radius:10px;
+  border:1.5px solid #e5e7eb;
   outline:none;
+  font-size:15px;
+  width:100%;
+  transition:.2s;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#0066ff;
 }
 .btn{
-  background:#ffcc00;
-  color:#000;padding:12px 28px;
-  border:none;border-radius:30px;
-  font-weight:700;cursor:pointer;
-  text-decoration:none;display:inline-block;
-  margin-top:15px;
+  background:#0066ff;
+  color:#fff;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:10px;
+  transition:.2s;
+}
+.btn:hover{
+  background:#004ecc;
+  transform:translateY(-1px);
 }
 footer{
-  background:#0000001a;
+  background:#11111113;
   text-align:center;
-  padding:10px;
-  border-radius: 20px;
-  color: #000;
+  padding:15px 5%;
+  border-radius:20px;
+  color:#000;
+  max-width:1200px;
+  margin:20px auto 20px;
 }
 
-
+/* MOBILE */
 @media(max-width:768px){
-  .nav-links li{
-    font-size: 12px;
+  nav{
+    padding:10px 5%;
+  }
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-100%;
+    flex-direction:column;
+    background:#111;
+    width:270px;
+    height:100vh;
+    padding:90px 30px 30px;
+    gap:22px;
+    align-items:flex-start;
+    transition:right 0.35s cubic-bezier(.77,0,.175,1);
+    box-shadow:-10px 0 30px rgba(0,0,0,.3);
+  }
+  .nav-links a{
+    color:#fff;
+    font-size:18px;
+  }
+  .nav-links a::after{
+    display:none;
+  }
+  .nav-links.active{
+    right:0;
+  }
+  .hamburger{
+    display:block;
+    z-index:101;
+  }
+  #book h1{
+    font-size:22px;
+  }
+  footer{
+     box-shadow:0 10px 30px rgba(0,0,0,.08);
   }
 }
-

@@ -8,17 +8,25 @@
 </head>
 <body>
     <header>
-      <div class="head-flex">
-        <div class="logo">
-          <a href="index.html"><img src="images/v-400.jpg" alt="Vatican Table Water Logo" width="150" height="150"></a>
-        </div>
-      </div>
-    </header>
+  <nav>
+    <div class="logo">
+  <a href="index.html"><img src="images/v-400.jpg" alt="Vatican Table Water Logo"></a>
+</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#book">Order Now</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">☰</div>
+  </nav>
+</header>
 
     <main>
       <div class="form-container">
-        <h1>PLACE YOUR ORDER HERE</h1>
-        <p><small>Fill the form below and I will respond within 20 minutes. <br> Surulere, Lagos based.</small></p>
+       <div class="" id="book">
+         <h1>PLACE YOUR ORDER HERE</h1>
+        <p>Fill the form below and I will respond within 20 minutes.<br> Surulere, Lagos based.</p>
+       </div>
         
         <form id="orderForm" onsubmit="sendToWhatsApp(event)">
           <input type="text" id="name" placeholder="Your Name" required>
@@ -27,7 +35,7 @@
           <textarea id="add-info" rows="3" placeholder="ADDITIONAL INFORMATION (Optional)"></textarea>
           <select id="service" required>
             <option value="">Select Service</option>
-            <option value="Full Set(10 Bags) - ₦3,800">Full Set(10Bags) - ₦3,800</option>
+            <option value="Full Set(10 Bags) - ₦3,800">1 Set(10Bags) - ₦3,800</option>
             <option value="2 Sets(20 Bags) - ₦7,200">2 Sets(20 Bags) - ₦7,200</option>
             <option value="5 Sets(50 Bags) - ₦18,600">5 Sets(50 Bags) - ₦18,600</option>
             <option value="Deca Set(100 Bags) - ₦32000">Deca Set(100 Bags) - ₦32000</option>
@@ -44,36 +52,6 @@
       <p style="margin-top:15px;font-size:12px">© 2026 VATICAN TABLE WATER • Built by Kreations</p>
     </footer>
 
-<script>
-function sendToWhatsApp(e){
-  e.preventDefault(); // stops page from reloading
-
-  // CHANGE THIS TO YOUR NUMBER - use format 2348012345678 (no +)
-  const myNumber = "2349156002887"; 
-
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const address = document.getElementById('address').value.trim();
-  const info = document.getElementById('add-info').value.trim();
-  const service = document.getElementById('service').value;
-
-  if(!service){
-    alert("Please select a service");
-    return;
-  }
-
-  const message = `*NEW VATICAN WATER ORDER*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Order:* ${service}%0A*Extra Info:* ${info ? info : 'None'}`;
-
-  // Show thank you message on page
-  document.getElementById('successMsg').style.display = 'block';
-  document.getElementById('orderForm').reset();
-
-  // Small delay so user sees the thank you message before WhatsApp opens
-  setTimeout(() => {
-    const url = `https://wa.me/${myNumber}?text=${message}`;
-    window.open(url, '_blank');
-  }, 1000);
-}
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
