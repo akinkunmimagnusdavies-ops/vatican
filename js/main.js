@@ -37,7 +37,7 @@ function sendToWhatsApp(e){
     alert("Please select a service");
     return;
   }
-  const message = `*NEW VATICAN WATER ORDER*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Order:* ${service}%0A*Extra Info:* ${info ? info : 'None'}`;
+  const message = `*NEW WATER ORDER*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Order:* ${service}%0A*Extra Info:* ${info ? info : 'None'}`;
   document.getElementById('successMsg').style.display = 'block';
   document.getElementById('orderForm').reset();
   setTimeout(() => {

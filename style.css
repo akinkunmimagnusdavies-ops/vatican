@@ -28,7 +28,7 @@ nav{
 }
 .logo img{
   width:100px;
-  height:100px;
+  height:70px;
   object-fit:cover;
   border-radius:50%;
   display:block;
@@ -68,6 +68,20 @@ nav{
   user-select:none;
 }
 
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.gallery-grid img{
+  display: block;
+  width: 100%;
+  border: 2px solid blue;
+  border-radius: 5px;
+}
+
 /* FORM AREA */
 .form-container{
   max-width:700px;
@@ -80,7 +94,7 @@ nav{
   margin-bottom:8px;
 }
 #book p{
-  color:#666;
+  color:#e60a0a;
   margin-bottom:20px;
 }
 form{
@@ -107,7 +121,7 @@ input:focus,select:focus,textarea:focus{
   border-color:#0066ff;
 }
 .btn{
-  background:#0066ff;
+  background:#25D366;
   color:#fff;
   padding:14px;
   border:none;
@@ -142,7 +156,7 @@ footer{
     top:0;
     right:-100%;
     flex-direction:column;
-    background:#111;
+    background: rgb(50, 122, 151);
     width:270px;
     height:100vh;
     padding:90px 30px 30px;
@@ -164,6 +178,18 @@ footer{
   .hamburger{
     display:block;
     z-index:101;
+  }
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+    padding: 10px;
+  }
+  .gallery-grid img{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: fill;
   }
   #book h1{
     font-size:22px;
